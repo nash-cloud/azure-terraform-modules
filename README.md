@@ -1,4 +1,3 @@
-````markdown
 # Azure Terraform Modules
 
 This repository contains reusable Terraform modules to provision the following Azure resources:
@@ -87,5 +86,3 @@ module "data_factory" {
 ## 📝 License
 
 This project is licensed under the MIT License.
-
-```
