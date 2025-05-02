@@ -1,6 +1,3 @@
-```
----
-
 ````markdown
 # Azure Terraform Modules
 
@@ -92,5 +89,3 @@ module "data_factory" {
 This project is licensed under the MIT License.
 
 ```
-
----
