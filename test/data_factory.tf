@@ -1,5 +1,5 @@
 module "data_factory" {
-  source = "../data-factory"
+  source = "../modules/data-factory/"
 
   basename            = random_string.postfix.result
   resource_group_name = module.local_rg.name
@@ -11,7 +11,7 @@ module "data_factory" {
 # Module dependencies
 
 module "local_rg" {
-  source = "../resource-group"
+  source = "../modules/resource-group/"
 
   basename = random_string.postfix.result
   location = var.location
