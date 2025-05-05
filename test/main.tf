@@ -33,7 +33,7 @@ module "user_assigned_identity" {
 # Modules dependencies
 
 module "local_rg" {
-  source = "../modules/resource-group/"
+  source   = "../modules/resource-group/"
   basename = random_string.postfix.result
   location = var.location
 

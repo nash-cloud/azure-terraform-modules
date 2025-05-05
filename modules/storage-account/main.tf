@@ -13,18 +13,47 @@ resource "azurerm_storage_account" "adl_st" {
   min_tls_version               = var.min_tls_version
   public_network_access_enabled = var.public_network_access_enabled
   
-  queue_properties {
-    logging {
-      delete                = true
-      read                  = true
-      write                 = true
-      version               = "1.0"
-      retention_policy_days = 10
-    }
-  }
+  # queue_properties {
+  #   logging {
+  #     delete                = true
+  #     read                  = true
+  #     write                 = true
+  #     version               = "1.0"
+  #     retention_policy_days = 10
+  #   }
+  # }
   tags = var.tags
 
   count = var.module_enabled ? 1 : 0
+}
+
+resource "azurerm_storage_account_queue_properties" "example" {
+  storage_account_id = azurerm_storage_account.adl_st[0].id
+  # cors_rule {
+  #   allowed_origins    = ["http://www.example.com"]
+  #   exposed_headers    = ["x-tempo-*"]
+  #   allowed_headers    = ["x-tempo-*"]
+  #   allowed_methods    = ["GET", "PUT"]
+  #   max_age_in_seconds = "500"
+  # }
+
+  logging {
+    version               = "1.0"
+    delete                = true
+    read                  = true
+    write                 = true
+    retention_policy_days = 7
+  }
+
+  # hour_metrics {
+  #   version               = "1.0"
+  #   retention_policy_days = 7
+  # }
+
+  # minute_metrics {
+  #   version               = "1.0"
+  #   retention_policy_days = 7
+  # }
 }
 
 resource "azurerm_role_assignment" "st_role_admin_c" {
