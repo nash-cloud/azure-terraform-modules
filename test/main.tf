@@ -8,15 +8,6 @@ module "data_factory" {
   tags = local.tags
 }
 
-module "local_rg" {
-  source = "../modules/resource-group/"
-
-  basename = random_string.postfix.result
-  location = var.location
-
-  tags = local.tags
-}
-
 # Storage account for data factory
 module "storage_account" {
   source                              = "../modules/storage-account/"
@@ -29,4 +20,22 @@ module "storage_account" {
   firewall_bypass                     = var.firewall_bypass
   firewall_virtual_network_subnet_ids = var.firewall_virtual_network_subnet_ids
   tags                                = local.tags
+}
+
+module "user_assigned_identity" {
+  source              = "../modules/user-assigned-identity"
+  basename            = random_string.postfix.result
+  resource_group_name = module.local_rg.name
+  location            = var.location
+  tags                = {}
+}
+
+# Modules dependencies
+
+module "local_rg" {
+  source = "../modules/resource-group/"
+  basename = random_string.postfix.result
+  location = var.location
+
+  tags = local.tags
 }

@@ -14,7 +14,7 @@ variable "subscription_id" {
   default = null
 }
 
-# Storage account variables
+# Storage account 
 variable "hns_enabled" {
   type        = bool
   description = "Hierarchical namespaces enabled/disabled."
@@ -44,3 +44,5 @@ variable "firewall_bypass" {
   description = "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices."
   default     = ["AzureServices"]
 }
+
+# User Assigned Identity 

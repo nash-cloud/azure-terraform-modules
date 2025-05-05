@@ -30,7 +30,11 @@ azure-terraform-modules/
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * An Azure subscription
 
-### Initialize and Deploy
+### Initialize and Deploy (Instructions)
+- Clone the [repo](https://github.com/nash-cloud/azure-terraform-modules.git)
+- Copy terraform.tfvars.example to terraform.tfvars
+- Update terraform.tfvars with your desired values
+- Run Terraform
 
 ```bash
 # Initialize Terraform
