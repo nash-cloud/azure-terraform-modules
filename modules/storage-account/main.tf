@@ -45,15 +45,15 @@ resource "azurerm_storage_account_queue_properties" "example" {
     retention_policy_days = 7
   }
 
-  # hour_metrics {
-  #   version               = "1.0"
-  #   retention_policy_days = 7
-  # }
+  hour_metrics {
+    version               = "1.0"
+    retention_policy_days = 7
+  }
 
-  # minute_metrics {
-  #   version               = "1.0"
-  #   retention_policy_days = 7
-  # }
+  minute_metrics {
+    version               = "1.0"
+    retention_policy_days = 7
+  }
 }
 
 resource "azurerm_role_assignment" "st_role_admin_c" {

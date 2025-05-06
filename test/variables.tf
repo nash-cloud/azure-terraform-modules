@@ -14,17 +14,17 @@ variable "subscription_id" {
   default = null
 }
 
+variable "module_enabled" {
+  type        = bool
+  description = "Variable to enable or disable the module."
+  default     = true
+}
+
 # Storage account 
 variable "hns_enabled" {
   type        = bool
   description = "Hierarchical namespaces enabled/disabled."
   default     = true
-}
-
-variable "firewall_virtual_network_subnet_ids" {
-  type        = list(string)
-  description = "A list of virtual network subnet ids to to secure the storage account."
-  default     = []
 }
 
 variable "firewall_default_action" {
@@ -45,4 +45,40 @@ variable "firewall_bypass" {
   default     = ["AzureServices"]
 }
 
-# User Assigned Identity 
+# SQL server 
+variable "db_version" {
+  type        = string
+  description = "The version of the sql server."
+  default     = "12.0"
+}
+
+variable "sql_server_administrator_login" {
+  type        = string
+  description = "The administrator login name for the sql server."
+  default     = null
+}
+
+variable "sql_server_administrator_password" {
+  type        = string
+  description = "The administrator password for the sql server."
+  default     = null
+}
+
+variable "minimum_tls_version" {
+  type        = string
+  description = "The minimum TLS version."
+  default     = "1.2"
+}
+
+# SQL Database 
+variable "sku_name" {
+  type        = string
+  description = "The sku name."
+  default     = "S0"
+}
+
+variable "geo_backup_enabled" {
+  type        = bool
+  description = "Geo backup enabled/disabled."
+  default     = true
+} 

@@ -27,7 +27,7 @@ output "access_key" {
     length(azurerm_storage_account.adl_st) > 0 ?
     azurerm_storage_account.adl_st[0].primary_access_key : ""
   )
-  description = "Primary access keyfor the Storage Account."
+  description = "Primary access key for the Storage Account."
   sensitive   = true
 }
 

@@ -31,14 +31,32 @@ output "storage_access_key" {
 }
 
 # User Assigned Identity Outputs
-output "id" {
+output "uai_id" {
   value = module.user_assigned_identity.id
 }
 
-output "name" {
+output "uai_name" {
   value = module.user_assigned_identity.name
 }
 
 output "principal_id" {
   value = module.user_assigned_identity.principal_id
+}
+
+# Azure SQL Server Outputs
+output "sql_server_id" {
+  value = module.sql_database_server.id
+}
+
+output "sql_server_name" {
+  value = module.sql_database_server.name
+}
+
+output "fully_qualified_domain_name" {
+  value = module.sql_database_server.fully_qualified_domain_name
+}
+
+# Azure SQL Database Outputs
+output "sql_database_name" {
+  value = module.sql_database.name
 }
