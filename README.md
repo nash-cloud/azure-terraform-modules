@@ -19,7 +19,11 @@ azure-terraform-modules/
 └── modules/
     ├── resource-group/
     ├── storage-account/
-    └── data-factory/
+    ├── data-factory/
+    ├── sql-server/
+    ├── sql-database/
+    └── user-assigned-identity/
+    
 ````
 
 ## 🚀 Getting Started
