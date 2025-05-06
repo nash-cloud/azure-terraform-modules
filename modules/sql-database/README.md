@@ -14,6 +14,9 @@
 | <a name="input_module_enabled"></a> [module\_enabled](#input\_module\_enabled) | Variable to enable or disable the module. | `bool` | `true` | no |
 | <a name="input_server_id"></a> [server\_id](#input\_server\_id) | The id of the SQL Server on which to create the database. | `string` | n/a | yes |
 | <a name="input_collation"></a> [collation](#input\_collation) | The name of the collation. | `string` | `"SQL_Latin1_General_CP1_CI_AS"` | no |
+| <a name="input_sku_name"></a> [sku\_name](#input\_sku\_name) | The name of the SKU. | `string` | `"Basic"` | no |
+| <a name="input_max_storage"></a> [max\_storage](#input\_max\_storage) | The maximum storage capacity expressed in GB. | `string` | `"2"` | no |
+| <a name="input_geo_backup_enabled"></a> [geo\_backup\_enabled](#input\_geo\_backup\_enabled) | Whether or not to enable geo-backup. | `bool` | `false` | no |
 
 ## Outputs
 
