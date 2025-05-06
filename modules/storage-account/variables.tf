@@ -103,9 +103,9 @@ variable "firewall_ip_rules" {
 }
 
 variable "firewall_virtual_network_subnet_ids" {
-    type = list(string)
-    description = "A list of virtual network subnet ids to secure the storage account. optional"
-    default = []
+  type        = list(string)
+  description = "A list of virtual network subnet ids to secure the storage account. optional"
+  default     = []
 }
 
 variable "firewall_bypass" {
@@ -117,3 +117,11 @@ variable "firewall_bypass" {
   }
   default = ["AzureServices"]
 }
+
+# Define the container names
+variable "container_names" {
+  type    = list(string)
+  default = ["bronze", "silver", "gold"]
+}
+
+

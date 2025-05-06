@@ -20,7 +20,6 @@ module "storage_account" {
   firewall_default_action = var.firewall_default_action
   firewall_ip_rules       = var.firewall_ip_rules
   firewall_bypass         = var.firewall_bypass
-  # firewall_virtual_network_subnet_ids = var.firewall_virtual_network_subnet_ids
   tags = local.tags
 
 }
@@ -56,11 +55,10 @@ module "sql_database_server" {
 }
 
 module "sql_database" {
-  source             = "../modules/sql-database"
-  basename           = random_string.postfix.result
-  server_id          = module.sql_database_server.id
-  # geo_backup_enabled = var.geo_backup_enabled
-  tags               = local.tags
+  source    = "../modules/sql-database"
+  basename  = random_string.postfix.result
+  server_id = module.sql_database_server.id
+  tags = local.tags
 }
 
 # Modules dependencies

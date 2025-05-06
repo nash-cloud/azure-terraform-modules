@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "adl_st" {
   is_hns_enabled                = var.hns_enabled
   min_tls_version               = var.min_tls_version
   public_network_access_enabled = var.public_network_access_enabled
-  
+
   # queue_properties {
   #   logging {
   #     delete                = true
@@ -27,7 +27,7 @@ resource "azurerm_storage_account" "adl_st" {
   count = var.module_enabled ? 1 : 0
 }
 
-resource "azurerm_storage_account_queue_properties" "example" {
+resource "azurerm_storage_account_queue_properties" "st_queue_properties" {
   storage_account_id = azurerm_storage_account.adl_st[0].id
   # cors_rule {
   #   allowed_origins    = ["http://www.example.com"]
@@ -91,4 +91,13 @@ resource "azurerm_storage_account_network_rules" "firewall_rules" {
   bypass                     = var.firewall_bypass
 
   count = var.module_enabled ? 1 : 0
+}
+
+# Creating madelian container
+resource "azurerm_storage_container" "st_container" {
+  name                  = var.container_names[count.index]
+  storage_account_id    = azurerm_storage_account.adl_st[0].id
+  container_access_type = "private"
+
+  count = var.module_enabled ? length(var.container_names) : 0
 }
