@@ -5,6 +5,9 @@ This repository contains reusable Terraform modules to provision the following A
 - Resource Group
 - Storage Account
 - Data Factory
+- SQL Server
+- SQL Database
+- User Assigned Identity
 
 ## 🧱 Module Structure
 
