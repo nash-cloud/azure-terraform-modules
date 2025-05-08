@@ -1,10 +1,10 @@
 terraform {
-  # backend "azurerm" {
-  #   resource_group_name  = "rg-adl-terraform-state"
-  #   storage_account_name = "stadlterraformstate"
-  #   container_name       = "default"
-  #   key                  = "datafactory.terraform.tfstate"
-  # }
+  backend "azurerm" {
+    resource_group_name  = "rg-tfstate"
+    storage_account_name = "storagetfstateacct"
+    container_name       = "default"
+    key                  = "datalab.terraform.tfstate"
+  }
 
   required_providers {
     azurerm = {
